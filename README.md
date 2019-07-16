@@ -1,2 +1,2 @@
 # adrianbegg.github.io
-# Blog
+This is the repo for my static blog.
