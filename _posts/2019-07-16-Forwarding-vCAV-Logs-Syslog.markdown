@@ -17,7 +17,7 @@ tags: [vcpp,vCAV,vCloud]
 {% endunless %}
 By default, in vCloud Availability 3.X there is no mechanism via the API/GUI to configure a remote syslog for forwarding the application logs which could be an issue if you require this for compliance reasons or to simplify troubleshooting. With some guidance from the VMWare Project Presto team I was able to successfully get the H4 service logs forwarded with relative ease using the following.
 
-vCloud Availability uses [Logback](https://logback.qos.ch/) for service logging and the the logback.xml configuration file needs to be changed for each of the services for full service coverage. The logs can still be written to the local logging files however you can send copies to a remote syslog server for data warehousing.
+vCloud Availability uses [Logback](https://logback.qos.ch/) for service logging and the the **logback.xml** configuration file needs to be changed for each of the services for full service coverage. The logs can still be written to the local logging files however you can send copies to a remote syslog server for data warehousing.
 
 | Appliance        | Service            | Configuration Path                           | Recommended Suffix Pattern                                            |
 | :--------------- |:------------------:| :--------------------------------------------|:----------------------------------------------------------------------|
