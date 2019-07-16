@@ -14,19 +14,20 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Pigeon Nuggets
-email: adrian.begg@ehloworld.com.au
+email: adrain.begg@ehloworld.com.au
 description: >- # this means to ignore newlines until "baseurl:"
-  A technical blog maintained by Adrian Begg focusing on "cloudy" things.
-  My current focus is the VMware Cloud Provider Program (VCPP) product suite
-  and VMWare on AWS (VMC).
+  Piegon Nuggets is the technical blog of Adrian Begg with a focus on "cloudy" topics.
+  VMWare Certified Professional (VCP-DV 5/6/6.5), VMWare vExpert 2017-19, VMWare Cloud Provider Specialist competency for 2019.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.pigeonnuggets.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: adrianbegg
-github_username:  adrianbegg
+twitter_username: AdrianBegg
+github_username: AdrianBegg
+linkedin_username: adrian-begg
+
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-midnight
+theme: minima
 plugins:
   - jekyll-feed
 
