@@ -1,0 +1,9 @@
+{% capture words %}
+  {{ page.content | number_of_words | minus: 250 }}
+{% endcapture %}
+{% capture words_time %}
+  {{ page.content | number_of_words | minus: 250 }}
+{% endcapture %}
+{% unless words contains "-" %}
+<sub>_Length: {{ words | plus: 250 | append: " words" }} | Estimated Reading Time: {{ words | plus: 250 | divided_by: 180 | append: " minutes"}}_</sub>
+{% endunless %}
