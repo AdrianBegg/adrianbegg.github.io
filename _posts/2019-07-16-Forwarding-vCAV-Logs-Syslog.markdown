@@ -39,3 +39,5 @@ vCloud Availability uses [Logback](https://logback.qos.ch/) for service logging 
 ![Example logback.xml for the cloud.service sending default logging to syslogd @ 192.168.88.10](/assets/vCAV-EnableSyslog-C4-logbackxml.png)
 
 **Step 4.** Repeat the process for each of the services and verify on your syslog server that events are being received.
+
+In addition to the application logs the Photon appliance kernel and system logs can also be sent to a remote syslog server by editing the rsyslogd configuration.
