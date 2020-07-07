@@ -19,6 +19,8 @@ In order to use the service your Organization will need to be a VMWare MSP and h
 ## Getting Started
 In the below example I will walk through creating a new instance in the us-west-2 Early Access environment (the only available region at the time of writing), associating a VMC SDDC. This assumes that you have already setup a VMC SDDC which will be used as the Resource vCenter for the instance.
 
+The GitLab project for the module is hosted [here on GitLab](https://github.com/AdrianBegg/VMware.CDS.Community)
+
 ### Step 1.
 Install the module either from GitLab or directly from the PowerShell Gallery:
 ```
@@ -103,23 +105,23 @@ Disconnect-VCDService
 
 ## Functional Coverage
 The following cmdlets are available in the current release.
-Session:
+### Session:
 * Connect-VCDService : Establishes a new connection to the VMware Cloud Director service using an API Token from the VMware Console Services Portal
 * Disconnect-VCDService : This cmdlet removes the currently connected VMware Cloud Director service connection.
 
-Environment
+### Environment
 * Get-VCDSEnvironments : Returns a collection of Cloud Director Service environments for the default CSP environment on the currently available under the currently connected VMware Console Services Portal account.
 * Get-VCDSTemplates : Returns the available templates for the provided Cloud Director Service environment.
 * Get-VCDSInstances : Returns the Cloud Director Service instances currently running under the currently connected VMware Console Services Portal account.
 * New-VCDSInstance : Creates a new instance of Cloud Director Service under the currently connected VMware Console Services Portal account.
 * Remove-VCDSInstance : Deletes an instance of Cloud Director Service under the currently connected VMware Console Services Portal account.
 
-Operations:
+### Operations:
 * New-VCDSSupportBundle : Generates a Cloud Director support bundle
 * Register-VCDSSDDC : Associate an VMC SDDC with a VMware Cloud Director service instance.
 * Set-VCDSDomain : Configures a Custom DNS name and X.509 SSL certificates for a Cloud Director service instance and Console Proxy endpoints.
 
-Administration:
+### Administration:
 * Get-VCDSTasks : Returns a collection of Tasks from the connected Cloud Director Service environment.
 * Watch-VCDSTaskCompleted : A helper function to monitor a running task and returns True when the task completes.
 
