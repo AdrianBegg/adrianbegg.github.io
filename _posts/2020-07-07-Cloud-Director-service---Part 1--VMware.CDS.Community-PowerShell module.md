@@ -1,4 +1,4 @@
-g---
+---
 layout: post
 title:  "Cloud Director service - Part 1 : VMware.CDS.Community PowerShell module"
 date:   2020-07-07 20:00:00 +0200
@@ -19,20 +19,25 @@ In order to use the service your Organization will need to be a VMWare MSP and h
 ## Getting Started
 In the below example I will walk through creating a new instance in the us-west-2 Early Access environment (the only available region at the time of writing), associating a VMC SDDC. This assumes that you have already setup a VMC SDDC which will be used as the Resource vCenter for the instance.
 
-Step 1. Install the module either from GitLab or directly from the PowerShell Gallery:
+### Step 1.
+Install the module either from GitLab or directly from the PowerShell Gallery:
 ```
 Install-Module -Name VMware.CDS.Community -Scope CurrentUser
 Import-Module VMware.CDS.Community
 ```
 
-Step 2. Logon to VMware Cloud Services and under the Provider Internal Organization that will host the resources generate an API token (My Account > API Tokens > Generate Token) with the VMware Cloud Director role "Cloud Director Administrator"
+### Step 2.
+Logon to VMware Cloud Services and under the Provider Internal Organization that will host the resources generate an API token (My Account > API Tokens > Generate Token) with the VMware Cloud Director role "Cloud Director Administrator"
+
 ![alt text](/assets/vcds-pwsh-1.png "Generate an API Token"){:style="float: right;margin-right: 20px;margin-top: 0px;"}
 
-Step 3. Connect to the VMware Cloud Service Hub using the Connect-VCDService cmdlet and the API token from Step 2. - this will establish a session and store the session within a Global variable "$VCDService"
+### Step 3.
+Connect to the VMware Cloud Service Hub using the Connect-VCDService cmdlet and the API token from Step 2. - this will establish a session and store the session within a Global variable "$VCDService"
 ```
 Connect-VCDService -CSPAPIToken "Your token goes here"
 ```
-Step 4. Create a set of HashTables which will be used to configure the initial instance deployment.
+### Step 4.
+Create a set of HashTables which will be used to configure the initial instance deployment.
 
 ```
 # The CDS Environment to deploy the instance.
@@ -52,7 +57,8 @@ Step 4. Create a set of HashTables which will be used to configure the initial i
     AdministratorPassword = "P@ssword!123"
 }
 ```
-Step 5. Create the new instance (takes about 10 - 15 minutes) to complete.
+### Step 5.
+Create the new instance (takes about 10 - 15 minutes) to complete.
 ```
 # Get the Environment and Template Parameters
 $CDSEnvironment = Get-VCDSEnvironments @CloudDirectorEnvironment
@@ -71,9 +77,11 @@ if(!(Watch-VCDSTaskCompleted -Task $TaskInstanceCreate -Timeout 1800)){
 }
 ```
 You should also see the new instance in the Cloud Director service portal and the workflows executing. The process typically takes around 15 minutes, the instances actually come online within minutes but there is a delay waiting for the public DNS records to propagate.
+
 ![alt text](/assets/vcds-pwsh-2.png "New Cloud Director instance workflow"){:style="float: right;margin-right: 20px;margin-top: 0px;"}
 
-Step 6. After the instance creation task complete the next step is to Associate a VMC SDDC with the instance which will be used as the Resource vCenter hosting the Cloud Director workloads. This can be any SDDC within the 150ms RT latency boundary of the Cloud Director service (e.g. us-west-2, us-west-1, us-east-1, us-east-2, eu-west-2). You will need to provide the VMC Organization UUID hosting the SDDC, the SDDC Name and an API token with access to the Organization
+### Step 6.
+After the instance creation task complete the next step is to Associate a VMC SDDC with the instance which will be used as the Resource vCenter hosting the Cloud Director workloads. This can be any SDDC within the 150ms RT latency boundary of the Cloud Director service (e.g. us-west-2, us-west-1, us-east-1, us-east-2, eu-west-2). You will need to provide the VMC Organization UUID hosting the SDDC, the SDDC Name and an API token with access to the Organization
 ```
 # Get the Instance properties of the Cloud Director instance created in previous step
 $Instance = Get-VCDSInstances -Name $CloudDirectorInstance.Name -EnvironmentId $CloudDirectorInstance.EnvironmentId
