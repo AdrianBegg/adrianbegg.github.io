@@ -38,8 +38,10 @@ Prepare certificate file (including Root CA, Intermediates and the Certificate) 
 
 ## Step 4. Install the Certificate and set Custom DNS
 Logon to the [VMware Cloud Services portal](https://console.cloud.vmware.com/) and from the Organization hosting your Cloud Director service, select the VMware Cloud Director tile and under the instance menu select the "Actions > Associate Custom Domain" and when prompted provide the custom DNS records created in Step 2 and the Certificates created in Step 3.
-![alt text](/assets/vcds-dns-6.png "Create Certbot Wildcard certificate."){:style="float: right;margin-right: 20px;margin-top: 0px;"}
-![alt text](/assets/vcds-dns-7.png "Create Certbot Wildcard certificate."){:style="float: right;margin-right: 20px;margin-top: 0px;"}
+
+![alt text](/assets/vcds-dns-6.png "Create Certbot Wildcard certificate."){:style="margin-right: 20px;margin-top: 0px;"}
+
+![alt text](/assets/vcds-dns-7.png "Create Certbot Wildcard certificate."){:style="margin-right: 20px;margin-top: 0px;"}
 
 ### Step 4. (Alternative) Install the Certificate and set Custom DNS (But using PowerShell)
 You can also perform the Associate Custom Domain using the VMware.CDS.Community PowerShell module.
