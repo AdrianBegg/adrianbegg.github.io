@@ -1,4 +1,4 @@
-g---
+---
 layout: post
 title:  "Cloud Director service - Part 2 : Configuring custom DNS and Certificates"
 date:   2020-07-09 20:00:00 +0200
@@ -13,10 +13,14 @@ It is important to note that the public DNS records (for the Console Proxy and A
 
 ## Step 1. Get the DNS address for the Instance
 Logon to the [VMware Cloud Services portal](https://console.cloud.vmware.com/) and from the Organization hosting your Cloud Director service, select the VMware Cloud Director tile and under the instance menu select the "Open VCD" button.
-![alt text](/assets/vcds-dns-1.png "Cloud Director service tile"){:style="float: right;margin-right: 20px;margin-top: 0px;"}
-![alt text](/assets/vcds-dns-2.png "Cloud Director instance menu"){:style="float: right;margin-right: 20px;margin-top: 0px;"}
+
+![alt text](/assets/vcds-dns-1.png "Cloud Director service tile"){:style="margin-right: 20px;margin-top: 0px;"}
+
+![alt text](/assets/vcds-dns-2.png "Cloud Director instance menu"){:style="margin-right: 20px;margin-top: 0px;"}
+
 Logon to the instance using the System Administrator credentials and select Public Addresses from the Administration menu and record the API/Portal DNS records and the Console Proxy address.
-![alt text](/assets/vcds-dns-3.png "Cloud Director instance DNS Record"){:style="float: right;margin-right: 20px;margin-top: 0px;"}
+
+![alt text](/assets/vcds-dns-3.png "Cloud Director instance DNS Record"){:style="margin-right: 20px;margin-top: 0px;"}
 
 ## Step 2. Create a CNAME record in your DNS
 Logon to your public DNS servers/providers DNS portal and create a new CNAME record (eg. clouddirector.pigeonnuggets.com) pointing to the DNS record of the Web Portal/API and a second record for the Console Proxy (eg. clouddirector-console.pigeonnuggets.com)
